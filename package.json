@@ -1,0 +1,48 @@
+{
+  "name": "my-app",
+  "version": "1.0.0",
+  "description": "simple bootstrap for angular",
+  "main": "index.js",
+  "engines": {
+    "node": "5.9"
+  },
+  "scripts": {
+    "postinstall": "bower install",
+    "lint": "eslint src/ test/ gulp/ || true",
+    "lint:fix": "eslint src/ test/ gulp/ --fix",
+    "start": "node index.js",
+    "build": "gulp build",
+    "build:watch": "gulp watch",
+    "test": "istanbul cover node_modules/mocha/bin/_mocha -- --compilers js:babel-core/register test/**/*.js",
+    "test:noc": "mocha --compilers js:babel-core/register test/**/*.js --silent",
+    "test:watch": "npm test --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TeemuKoivisto/angular-bootstrap.git"
+  },
+  "author": "Me",
+  "license": "ISC",
+  "dependencies": {
+    "bower": "^1.7.9",
+    "express": "^4.13.4"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "coveralls": "^2.11.9",
+    "eslint": "^2.6.0",
+    "eslint-config-airbnb": "^6.2.0",
+    "eslint-plugin-react": "^4.2.3",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-ng-annotate": "^2.0.0",
+    "gulp-nodemon": "^2.0.6",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.5.3",
+    "istanbul": "^1.0.0-alpha.2",
+    "mocha": "^2.4.5",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
+  }
+}
