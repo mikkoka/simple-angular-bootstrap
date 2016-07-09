@@ -6,7 +6,7 @@ gulp.task("nodemon", ["watch-all"], () => {
   nodemon({
     script: "index.js",
     ext: "js html css jpg png",
-    ignore: ["src/**/*", "gulp", "test"]
+    ignore: ["src/**/*", "dist/**/*", "gulp", "test", "e2e"]
   }).on("restart", () => {
     livereload.reload();
     console.log("server restart");

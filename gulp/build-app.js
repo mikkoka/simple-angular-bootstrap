@@ -32,12 +32,6 @@ gulp.task("build-html", () => {
     .pipe(livereload());
 })
 
-// gulp.task("build-img", () => {
-//   return gulp.src("./src/img/**/*")
-//     .pipe(gulp.dest("./dist/img"))
-//     .pipe(livereload());
-// })
-
 gulp.task("build-bower", () => {
   return gulp.src(mainBowerFiles())
     .pipe(gulp.dest("./dist/bower"))
