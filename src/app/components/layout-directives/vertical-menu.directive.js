@@ -1,6 +1,6 @@
 MyApp.directive("verticalMenu", function($document, $window) {
   return {
-    templateUrl: "app/components/layout-directives/vertical-menu.html",
+    templateUrl: "templates/layout-directives/vertical-menu.html",
     link: function(scope, element, attrs) {
       var navbar = document.getElementById("navbar");
       var menu = element.find(".fixed-pos")[0];

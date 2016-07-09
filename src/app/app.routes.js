@@ -6,21 +6,21 @@ MyApp.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state("main", {
       url: "/",
-      templateUrl: "app/components/main/main.html",
+      templateUrl: "templates/main/main.html",
       controller: "MainController",
       controllerAs: "main"
     })
     .state("main.intro", {
       url: "intro",
-      templateUrl: "app/components/intro/intro.html",
+      templateUrl: "templates/intro/intro.html",
     })
     .state("main.test", {
       url: "test",
-      templateUrl: "app/components/test/test.html",
+      templateUrl: "templates/test/test.html",
     })
     .state("stuff", {
       url: "/stuff",
-      templateUrl: "app/components/stuff/stuff.html",
+      templateUrl: "templates/stuff/stuff.html",
       controller: "StuffController",
       controllerAs: "stuffCtrl"
     })

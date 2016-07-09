@@ -2,7 +2,10 @@
 node_modules/
 
 # bower package folder
-public/bower_components/
+src/bower_components/
+
+# environment variables file
+.env
 
 # gedit files
 *~
