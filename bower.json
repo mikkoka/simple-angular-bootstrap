@@ -21,5 +21,13 @@
     "angular": "^1.5.5",
     "bootstrap": "^3.3.6",
     "semantic": "semantic-ui#^2.1.8"
+  },
+  "overrides": {
+    "angular": {
+      "main": {
+        "development": "angular.js",
+        "production": "angular.min.js"
+      }
+    }
   }
 }
