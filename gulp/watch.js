@@ -7,5 +7,6 @@ gulp.task("watch-all", ["build-js", "build-css", "build-html", "build-bower"], (
   gulp.watch("src/app/**/*.js", ["build-js"]);
   gulp.watch("src/app/**/*.css", ["build-css"]);
   gulp.watch("src/app/components/**/*.html", ["build-html"]);
-  gulp.watch("src/bower_components/**/*", ["build-bower"]);
+  // this doesn't work for some reason TODO
+  // gulp.watch("src/bower_components/**/*", ["build-bower"]);
 });

@@ -6,6 +6,10 @@ const sourcemaps = require("gulp-sourcemaps");
 const mainBowerFiles = require("main-bower-files");
 const livereload = require("gulp-livereload");
 
+// gulp.task("clean-dist", () => {
+//   return gulp  
+// })
+
 gulp.task("build-js", () => {
   return gulp.src("./src/app/**/*.js")
     .pipe(concat("app.min.js"))
