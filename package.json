@@ -8,8 +8,8 @@
   },
   "scripts": {
     "postinstall": "bower install || true",
-    "lint": "eslint src/ test/ gulp/ || true",
-    "lint:fix": "eslint src/ test/ gulp/ --fix",
+    "lint": "eslint src/app/ test/ gulp/ || true",
+    "lint:fix": "eslint src/app/ test/ gulp/ --fix",
     "start": "node index.js",
     "build": "gulp build",
     "build:watch": "gulp watch",
