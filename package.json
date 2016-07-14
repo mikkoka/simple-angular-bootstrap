@@ -12,7 +12,6 @@
     "lint:fix": "eslint src/app/ test/ gulp/ --fix",
     "start": "node index.js",
     "build": "gulp build",
-    "build:watch": "gulp watch",
     "test": "istanbul cover node_modules/mocha/bin/_mocha test/**/*.js",
     "test:noc": "mocha test/**/*.js --silent",
     "test:watch": "npm test --watch"
@@ -28,9 +27,11 @@
     "express": "^4.13.4"
   },
   "devDependencies": {
+    "angular-mocks": "^1.5.7",
     "bower": "^1.7.9",
     "chai": "^3.5.0",
     "coveralls": "^2.11.9",
+    "del": "^2.2.1",
     "eslint": "^2.6.0",
     "eslint-config-airbnb": "^6.2.0",
     "eslint-plugin-react": "^4.2.3",

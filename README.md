@@ -1,13 +1,38 @@
 # simple angular bootstrap [![Build Status](https://travis-ci.org/TeemuKoivisto/simple-angular-bootstrap.svg?branch=master)](https://travis-ci.org/TeemuKoivisto/simple-angular-bootstrap) [![Coverage Status](https://coveralls.io/repos/github/TeemuKoivisto/simple-angular-bootstrap/badge.svg?branch=master)](https://coveralls.io/github/TeemuKoivisto/simple-angular-bootstrap?branch=master)
 Simple Angular 1.5 bootstrap with Gulp and Bootstrap.
+
 # General
 This app is ultra small scaffold that I myself use as a base when starting out angular projects. It consists of basic gulp scripts for minifying the code and generic libraries that are useful for getting things done quick and easy.
 
-# File structure
-Folder structure of the app is following:
+# How to install
+1. Install Node.js and nvm if you don't have them by now. Newest versions suit very well. 4.-something if you want the production-stable version.
+2. Clone this repository and go to the root and enter ```npm i```.
+3. After downloading dependencies install gulp and bower globally ```nvm i -g gulp bower```.
+4. It's recommended to use Livereload plugin, [here's one for Chrome](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei).
+5. This app uses dotenv for storing environment variables, rename the ```.dev-env``` file in the root of this folder to ```.env``` and anytime you want to use Travis or Heroku remember to add your variables to their config. Or for your own server create your own production ```.env```.
+6. Now you're all set, enter ```gulp nodemon``` to run the development server.
+7. Go to localhost:3333 and hit the Livereload button in the upper corner of your browser. Now anytime you make changes to the code Livereload automatically refreshes the page (so you don't have to spam F5).
+
+# How to make changes
+Here's some things that you need to know. The files inside ```src```-folder are moved to dist and all static assests are stored inside ```public```-folder. When you install frontend dependencies with bower remember to add the link or script tags to the ```index.html```. Sometimes the files ```gulp build-bower``` adds from the ```bower_components``` to the ```dist``` are undesired type e.g. ```less```-files. Then you have to override their default bower-settings and write as I've done to ```bower.json``` what library you ovverride and what files you rather want from its folder to be moved into ```dist```.
+
+# App's structure summed up:
+
+The source files are written into ```src```-folder. From that folder your gulp scripts move the files and process them into ```dist```-folder. Your ```index.html``` then gathers those files from that folder with link and script tags and vóila you got your Single-Page-Application. Frontend dependencies are installed with Bower using ```bower i <library> --save``` and if you need backend dependencies depending do you need them in production or not install them ```npm i <library> --save``` if you need them in production e.g. express or ```npm i <library> --save-dev``` if not e.g. gulp.
+
+Create controllers to handle the stuff between view(html) and logic(services/factories). Do all your logic in services/factories e.g. calling the API or holding app-wide information. I myself prefer services over factories but in short: you can have only one service, you can create multiple instances from one factory. Add routes and new Angular libraries to ```app.routes.js```. 
+
+Here's a list of important commands to remember:
+1. ```npm i <library> --save``` or ```npm i <library> --save-dev``` or ```npm i -g <library> --save```
+2. ```bower i <library> --save``
+3. ```gulp nodemon```
+4. ```npm run lint``` or ```npm run lint:fix```
+5. ```npm test```
+
+# Detailed version
 
 ## public  
-Hosted files and frontend libraries installed with bower. Also the place for the minified and uglified code so the path names to html-files stay correct.
+Static files such as images and etc. The best practise of course is to use dedicated file-hosting server but that would be a bit over-kill in this case.
 
 ## gulp  
 Where the gulp scripts are stored. The gulpfile.js at the root of this project automatically requires every file from this folder so that you don't have to (copied from yeoman's gulp-angular-bootstrap). There are as of writing this readme 3 files for keeping the app's development process manageable, The **build-app.js** file for gathering js and css source files and combining them into minified ones. Also in the end of tasks are pipings for livereload which leads us to **nodemon.js** file. This file is responsible for restarting the server after each build-script run and also refreshing the page at localhost:3333. Makes the development process so much more pleasant without having to hit F5 button constantly. **watch.js** file has currently only one script that's only purpose is to watch the source files inside ./public/app -folder and each time change is made run build scripts, notify livereload and after build script is ran nodemon script takes care of restarting the server to update all the changes. NOTE: I have some experience with hot reloading but too often I have to refresh the page as fallback when the changes don't actually update :/.

@@ -1,4 +1,5 @@
 const gulp = require("gulp");
+const del = require("del");
 const annotate = require("gulp-ng-annotate");
 const concat = require("gulp-concat");
 const uglify = require("gulp-uglify");
@@ -6,9 +7,13 @@ const sourcemaps = require("gulp-sourcemaps");
 const mainBowerFiles = require("main-bower-files");
 const livereload = require("gulp-livereload");
 
-// gulp.task("clean-dist", () => {
-//   return gulp  
-// })
+gulp.task("clean:dist", function () {
+  return del(["./dist/**/*"]);
+});
+
+gulp.task("build", ["clean:dist"], () => {
+  return gulp.start(["build-js", "build-css", "build-html", "build-bower"])
+});
 
 gulp.task("build-js", () => {
   return gulp.src("./src/app/**/*.js")
