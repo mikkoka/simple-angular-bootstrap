@@ -5,7 +5,7 @@ gulp.task("watch:all", ["build",], () => {
 // gulp.task("watch:all", ["build-js", "build-css", "build-html", "build-bower"], () => {
   livereload.listen();
   // if you use absolute path(./src) watch isn't notified by file creation/deletion
-  gulp.watch("src/app/**/*.js", ["build-js"]);
+  gulp.watch("src/app/**/*.js", ["build-js-min"]);
   gulp.watch("src/app/**/*.css", ["build-css"]);
   gulp.watch("src/app/components/**/*.html", ["build-html"]);
   // this doesn't work for some reason TODO

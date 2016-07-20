@@ -12,10 +12,20 @@ gulp.task("clean:dist", function () {
 });
 
 gulp.task("build", ["clean:dist"], () => {
-  return gulp.start(["build-js", "build-css", "build-html", "build-bower"])
+  return gulp.start(["build-js-min", "build-css", "build-html", "build-bower"])
 });
 
 gulp.task("build-js", () => {
+  return gulp.src("./src/app/**/*.js")
+    .pipe(concat("app.min.js"))
+    .pipe(annotate())
+    .pipe(sourcemaps.init())
+    .pipe(sourcemaps.write("."))
+    .pipe(gulp.dest("./dist/"))
+    .pipe(livereload());
+});
+
+gulp.task("build-js-min", () => {
   return gulp.src("./src/app/**/*.js")
     .pipe(concat("app.min.js"))
     .pipe(annotate())

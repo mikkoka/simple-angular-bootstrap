@@ -70,7 +70,7 @@ The configuration file for Eslint which is a JavaScript style checker library. H
 This is a rather generic file found in almost every git repository. It just tells git what folders and files are to be excluded from committing to the repo. In Node.js projects .gitignore is particularly important since we do not want to ever commit node_modules to git. Because that's why they have their own repositories so you can install them with ```npm installl``` when you download the project folder.
 
 ### .nvmrc
-This is a rather unsignificant file that only tells Travis and Heroku which Node.js version this project uses without having to write it down in .yml files. The real reason why it's needed is because .. uh I don't remember.
+This is a rather unsignificant file that only tells Travis and Heroku which Node.js version this project uses without having to write it down in .yml files. The real reason why it's needed is because everytime you run script like ```npm run lint``` and it fails it creates a file called ```npm-debug.log```. For reasons unknown that file could appear anywhere inside this project but having ```.nvmrc``` will always default it to the root folder.
 
 ### .travis.yml
 Travis configuration file. Just tells Travis how to build this project and what scripts to run. Only thing worth nothing here is the sending of coverage report to Coveralls with ```- cat ./coverage/lcov.info | coveralls```. It's regular bash because Travis containers are Linux-distros so you could write your own bash scripts to do stuff when you build your projects.
