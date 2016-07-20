@@ -18,7 +18,8 @@ module.exports = function(config) {
       'dist/bower/jquery.js',
       'dist/bower/angular.js',
       'dist/bower/*.js',
-      'dist/*.js',
+      // 'dist/*.js',
+      'src/app/**/*.js',
       'node_modules/angular-mocks/angular-mocks.js',
       'test/**/*.js'
     ],
@@ -32,7 +33,7 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'dist/app.min.js': ['coverage']
+      'src/app/**/*.js': ['coverage']
     },
 
 
@@ -41,6 +42,14 @@ module.exports = function(config) {
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
     reporters: ['progress', 'coverage'],
 
+    coverageReporter: {
+      dir: 'coverage/',
+      reporters: [
+        // reporters not supporting the `file` property
+        { type: 'html', subdir: 'report-html' },
+        { type: 'lcov', subdir: 'report-lcov' },
+      ]
+    },
 
     // web server port
     port: 9876,

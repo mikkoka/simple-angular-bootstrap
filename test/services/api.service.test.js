@@ -1,4 +1,4 @@
-xdescribe("MyApp", function() {
+describe("ApiService", function() {
 
   var ApiService,
       $log;
@@ -6,8 +6,10 @@ xdescribe("MyApp", function() {
   beforeEach(function () {
     module('MyApp');
 
-    inject(function ($controller) {
-      ApiService = $controller("MainController", { $scope: scope });
+    // Angular devs noticed that ApiService = ApiService would result in error
+    // that's why they added underlines so deal with it
+    inject(function (_ApiService_) {
+      ApiService = _ApiService_;
       // $log = _$log_;
     })
   });
@@ -18,7 +20,7 @@ xdescribe("MyApp", function() {
     });
 
     it ("should return 0", function() {
-      expect(ApiService.syncMethod()).toEqual(true);
+      expect(ApiService.syncMethod()).toEqual(0);
     });
   });
 });

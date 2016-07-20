@@ -12,10 +12,9 @@
     "lint:fix": "eslint src/app/ test/ gulp/ --fix",
     "start": "node index.js",
     "build": "gulp build",
-    "test": "istanbul cover node_modules/mocha/bin/_mocha test/**/*.js",
-    "test:noc": "mocha test/**/*.js --silent",
-    "test:watch": "npm test --watch",
-    "karma": "node node_modules/karma/bin/karma start"
+    "test": "node node_modules/karma/bin/karma start --single-run",
+    "test:ist": "istanbul cover node_modules/mocha/bin/_mocha test/**/*.js",
+    "test:watch": "node node_modules/karma/bin/karma start"
   },
   "repository": {
     "type": "git",
