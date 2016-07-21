@@ -2,7 +2,7 @@ const gulp = require("gulp");
 const nodemon = require("gulp-nodemon");
 const livereload = require("gulp-livereload");
 
-gulp.task("nodemon", ["watch:all"], () => {
+gulp.task("start", ["watch:all"], () => {
   nodemon({
     script: "index.js",
     ext: "js html css jpg png",

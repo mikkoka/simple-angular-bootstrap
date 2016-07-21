@@ -20,11 +20,18 @@
     "jquery": "^2.2.3",
     "angular": "^1.5.5",
     "bootstrap": "^3.3.6",
-    "Ionicons": "ionicons#^2.0.1"
+    "Ionicons": "ionicons#^2.0.1",
+    "font-awesome": "^4.6.3"
   },
   "overrides": {
     "bootstrap": {
-      "main": "./**/bootstrap.min.*"
+      "main": "./**/*.min.css"
+    },
+    "font-awesome": {
+      "main": "./**/*.min.css"
+    },
+    "Ionicons": {
+      "main": "./**/*.min.css"
     }
   }
 }

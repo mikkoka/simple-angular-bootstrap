@@ -10,11 +10,8 @@ This app is ultra small scaffold that I myself use as a base when starting out a
 3. After downloading dependencies install gulp and bower globally ```nvm i -g gulp bower```.
 4. It's recommended to use Livereload plugin, [here's one for Chrome](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei).
 5. This app uses dotenv for storing environment variables, rename the ```.dev-env``` file in the root of this folder to ```.env``` and anytime you want to use Travis or Heroku remember to add your variables to their config. Or for your own server create your own production ```.env```.
-6. Now you're all set, enter ```gulp nodemon``` to run the development server.
+6. Now you're all set, enter ```gulp start``` to run the development server.
 7. Go to localhost:3333 and hit the Livereload button in the upper corner of your browser. Now anytime you make changes to the code Livereload automatically refreshes the page (so you don't have to spam F5).
-
-# How to make changes
-Here's some things that you need to know. The files inside ```src```-folder are moved to dist and all static assests are stored inside ```public```-folder. When you install frontend dependencies with bower remember to add the link or script tags to the ```index.html```. Sometimes the files ```gulp build-bower``` adds from the ```bower_components``` to the ```dist``` are undesired type e.g. ```less```-files. Then you have to override their default bower-settings and write as I've done to ```bower.json``` what library you ovverride and what files you rather want from its folder to be moved into ```dist```.
 
 # App's structure summed up:
 
@@ -23,9 +20,10 @@ The source files are written into ```src```-folder. From that folder your gulp s
 Create controllers to handle the stuff between view(html) and logic(services/factories). Do all your logic in services/factories e.g. calling the API or holding app-wide information. I myself prefer services over factories but in short: you can have only one service which is a single instance of itself but with factories you can create multiple instances of the same factory. Add routes and new Angular libraries to ```app.routes.js```. 
 
 Here's a list of important commands to remember:
+
 1. ```npm i <library> --save``` or ```npm i <library> --save-dev``` or ```npm i -g <library> --save```
 2. ```bower i <library> --save``
-3. ```gulp nodemon```
+3. ```gulp start```
 4. ```npm run lint``` or ```npm run lint:fix```
 5. ```npm test```
 
@@ -47,7 +45,7 @@ End to end test files aka. Behavior-tests. While unit tests test invidual files 
 There is a lot of odd stuff in any project which programmer might not never understand what they are for. With any Node.js project there is certain amount of files you'll get used to quickly and know what they do like ```package.json```. Some just stay in your near consciousness and you only become aware of them when things stop working. So remeding that issue in advance here's every file from the root of this folder with a small description what they are for:
 
 ### package.json
-The one file to rule them all. This is the pom.xml of any Node.js project. Or Gemfile. Or.. well you get the idea. It has all the basic information how your app works and which libraries it uses. Also a vital thing it handles are the scripts run by ```npm```-command at the root of this folder. That often includes the famous ```npm start``` which is the main script for starting a Node.js application (in our case we use Gulp for starting the development version of our app with ```gulp nodemon```, ```npm start``` is only used in production where gulp isn't needed.) And ```npm test``` is de facto command for running tests. But often you want to create your own custom scripts with npm so you include those scripts in the ```package.json``` and they are runnable with ```npm run <script>``` -command. We have here various custom scripts that for example run the style check with Eslint ```npm run lint``` or xxx run tests without creating coverage report with Instanbul ```npm run test:noc```.xxx You could if you wanted run your gulp script from npm but that kinda beats the purpose of having a separate task-runner library.
+The one file to rule them all. This is the pom.xml of any Node.js project. Or Gemfile. Or.. well you get the idea. It has all the basic information how your app works and which libraries it uses. Also a vital thing it handles are the scripts run by ```npm```-command at the root of this folder. That often includes the famous ```npm start``` which is the main script for starting a Node.js application (in our case we use Gulp for starting the development version of our app with ```gulp start```, ```npm start``` is only used in production where gulp isn't needed.) And ```npm test``` is de facto command for running tests. But often you want to create your own custom scripts with npm so you include those scripts in the ```package.json``` and they are runnable with ```npm run <script>``` -command. We have here various custom scripts that for example run the style check with Eslint ```npm run lint``` or xxx run tests without creating coverage report with Instanbul ```npm run test:noc```.xxx You could if you wanted run your gulp script from npm but that kinda beats the purpose of having a separate task-runner library.
 
 Also important part to know is the difference of ```"dependencies"``` and ```"devDependencies"```. Simply put dependencies are the libraries your app *must* have in order to run it. DevDependencies are those libraries that are only needed when you're developing it thus when you have environment variable NODE_ENV set to production ```npm install``` automatically downloads only ```"dependencies"```.
 
