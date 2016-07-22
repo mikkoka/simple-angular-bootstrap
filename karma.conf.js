@@ -5,22 +5,23 @@ module.exports = function(config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
-    basePath: '',
+    basePath: "",
 
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['jasmine'],
+    frameworks: ["jasmine"],
 
 
     // list of files / patterns to load in the browser
     files: [
-      'dist/bower/**/jquery.min.js',
-      'dist/bower/**/angular.min.js',
-      'dist/bower/*.min.js',
-      'src/app/**/*.js',
-      'node_modules/angular-mocks/angular-mocks.js',
-      'test/**/*.js'
+      "dist/bower/jquery/dist/jquery.min.js",
+      "dist/bower/angular/angular.min.js",
+      "dist/bower/angular-ui-router/release/angular-ui-router.min.js",
+      "dist/bower/bootstrap/dist/js/bootstrap.min.js",
+      "src/app/**/*.js",
+      "node_modules/angular-mocks/angular-mocks.js",
+      "test/**/*.js"
     ],
 
 
@@ -32,21 +33,21 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'src/app/**/*.js': ['coverage']
+      "src/app/**/*.js": ["coverage"]
     },
 
 
     // test results reporter to use
-    // possible values: 'dots', 'progress'
+    // possible values: "dots", "progress"
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress', 'coverage'],
+    reporters: ["progress", "coverage"],
 
     coverageReporter: {
-      dir: 'coverage/',
+      dir: "coverage/",
       reporters: [
         // reporters not supporting the `file` property
-        { type: 'html', subdir: 'report-html' },
-        { type: 'lcov', subdir: 'report-lcov' },
+        { type: "html", subdir: "report-html" },
+        { type: "lcov", subdir: "report-lcov" },
       ]
     },
 
@@ -67,17 +68,17 @@ module.exports = function(config) {
     autoWatch: true,
 
     plugins: [
-      'karma-coverage',
-      'karma-jasmine',
-      'karma-sinon-chai',
-      // 'karma-chrome-launcher',
-      'karma-phantomjs-launcher'
+      "karma-coverage",
+      "karma-jasmine",
+      "karma-sinon-chai",
+      // "karma-chrome-launcher",
+      "karma-phantomjs-launcher"
     ],
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    // browsers: ['Chrome'],
-    browsers: ['PhantomJS'],
+    // browsers: ["Chrome"],
+    browsers: ["PhantomJS"],
 
 
     // Continuous Integration mode

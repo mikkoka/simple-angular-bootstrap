@@ -22,16 +22,5 @@
     "bootstrap": "^3.3.6",
     "Ionicons": "ionicons#^2.0.1",
     "font-awesome": "^4.6.3"
-  },
-  "overrides": {
-    "bootstrap": {
-      "main": "./**/*.min.css"
-    },
-    "font-awesome": {
-      "main": "./**/*.min.css"
-    },
-    "Ionicons": {
-      "main": "./**/*.min.css"
-    }
   }
 }

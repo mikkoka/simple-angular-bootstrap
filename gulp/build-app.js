@@ -4,8 +4,6 @@ const annotate = require("gulp-ng-annotate");
 const concat = require("gulp-concat");
 const uglify = require("gulp-uglify");
 const sourcemaps = require("gulp-sourcemaps");
-const mainBowerFiles = require("main-bower-files");
-const inject = require("gulp-inject");
 const livereload = require("gulp-livereload");
 
 gulp.task("clean:dist", function () {
@@ -57,29 +55,3 @@ gulp.task("build-bower", () => {
     .pipe(gulp.dest("./dist/bower"))
     .pipe(livereload());
 });
-
-gulp.task("inject", () => {
-  const index = gulp.src('./src/index.html');
-  const sources = gulp.src([
-    './dist/bower/**/bootstrap.min.css',
-    './dist/bower/**/font-awesome.min.css',
-    './dist/bower/**/ionicons.min.css',
-    './dist/bower/**/jquery.min.js', 
-    './dist/bower/**/angular.min.js', 
-    './dist/bower/**/angular-ui-router.min.js', 
-    './dist/bower/**/bootstrap.min.js'], {read: false});
-  return index.pipe(inject(sources), {
-      transform: function (filepath, file, i, length) {
-        return "asdf";
-      }
-    })
-    .pipe(gulp.dest('./'));
-});
-
-      // transform: function (filepath) {
-      //   // if (filepath.contains("/dist")) {
-      //     return '<li><a href="' + filepath + '">' + filepath + '</a></li>';
-      //   // }
-      //   // // Use the default transform as fallback: 
-      //   // return inject.transform.apply(inject.transform, arguments);
-      // }
