@@ -1,0 +1,3 @@
+MyApp.controller("LoginController", function() {
+
+})

@@ -25,13 +25,3 @@
 .header1 {
   font-family: 'Raleway', sans-serif;
 }
-
-a {
-  color: #000000;
-  text-decoration: underline;
-}
-
-a:hover {
-  color: #000000;
-  text-decoration: underline;
-}
