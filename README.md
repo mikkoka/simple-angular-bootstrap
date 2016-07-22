@@ -1,5 +1,5 @@
 # simple angular bootstrap [![Build Status](https://travis-ci.org/TeemuKoivisto/simple-angular-bootstrap.svg?branch=master)](https://travis-ci.org/TeemuKoivisto/simple-angular-bootstrap) [![Coverage Status](https://coveralls.io/repos/github/TeemuKoivisto/simple-angular-bootstrap/badge.svg?branch=master)](https://coveralls.io/github/TeemuKoivisto/simple-angular-bootstrap?branch=master)
-Simple Angular 1.5 bootstrap with Gulp and Bootstrap.
+Simple Angular 1.5 bootstrap with Gulp and Bootstrap. [Heroku deployment](https://simple-angular-bootstrap.herokuapp.com)
 
 # General
 This app is ultra small scaffold that I myself use as a base when starting out angular projects. It consists of basic gulp scripts for minifying the code and generic libraries that are useful for getting things done quick and easy.
