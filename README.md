@@ -5,7 +5,7 @@ Simple Angular 1.5 bootstrap with Gulp and Bootstrap.
 This app is ultra small scaffold that I myself use as a base when starting out angular projects. It consists of basic gulp scripts for minifying the code and generic libraries that are useful for getting things done quick and easy.
 
 # How to install
-1. Install Node.js and nvm if you don't have them by now. Newest versions suit very well. 4.-something if you want the production-stable version. Basically it should work if you write ```curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.4/install.sh | bash``` to your terminal.
+1. Install Node.js and nvm if you don't have them by now. Newest versions suit very well. 4.-something if you want the production-stable version. Basically it should work if you write ```curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.4/install.sh | bash``` to your terminal. Then ```nvm install 6.3.1``` and maybe ```nvm use 6.3.1```.
 2. Clone this repository and go to the root and enter ```npm i``` or ```npm install```.
 3. After downloading dependencies install gulp and bower globally ```npm i -g gulp bower```.
 4. It's recommended to use Livereload plugin, [here's one for Chrome](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei).
